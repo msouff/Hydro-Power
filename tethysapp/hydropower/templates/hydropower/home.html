@@ -1,0 +1,27 @@
+{% extends "hydropower/base.html" %}
+
+{% load tethys_gizmos %}
+
+{% block app_content %}
+  <h1>Hydropower Calculator</h1>
+
+  <form id='parameters-form' action="{% url 'hydropower:capacity' %}" method="post">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-md-6">
+        {% gizmo select_input materialDropdown %}
+      </div>
+    </div>
+
+    <p style="color: #333; font-size: 14px;"><strong>Enter parameter values</strong></p>
+    <div class="row">
+      <div class="col-md-6">
+        {% gizmo table_view input_tbv %}
+      </div>
+    </div>
+  </form>
+{% endblock %}
+
+{% block app_actions %}
+  {% gizmo button submit_button %}
+{% endblock %}
