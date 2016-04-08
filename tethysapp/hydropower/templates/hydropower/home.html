@@ -3,40 +3,51 @@
 {% load tethys_gizmos %}
 
 {% block app_content %}
-  <h1>Hydro Power Calculator</h1>
+  <h2>Hydro Power Calculator</h2>
 
   <form id='parameters-form' action="{% url 'hydropower:capacity' %}" method="post">
     {% csrf_token %}
-    <div class="row outlineDiv">
-      <div class="col-md-6">
-        {% gizmo select_input materialDropdown %}
+    <div class="row">
+      <div class="col-md-5">
+        {% gizmo select_input siteDropdown %}
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
         {% gizmo text_input text_input %}
       </div>
     </div>
     <br />
 
     <div class="row">
-      <div class="col-md-4 outlineDiv">
+      <div class="col-md-5">
         <div>
-        <p style="color: #333; font-size: 14px;"><strong>Enter Parameter Values</strong></p>
-        {% gizmo table_view input_tbv %}
+          {% gizmo select_input materialDropdown %}
+          <br />
+
+          <p style="color: #333; font-size: 14px;"><strong>Enter Parameter Values</strong></p>
+          {% gizmo table_view input_tbv %}
         </div>
       </div>
-      <div class="col-md-1"></div>
-      <div class="col-md-7 outlineDiv">
+      <div class="col-md-7">
         <div class="row">
-        <p style="color: #333; font-size: 14px; padding-left: 1em;"><strong>Enter Minor losses</strong></p>
-        <div class="col-md-4">
-          {% gizmo table_view bends_tbv %}
-        </div>
-        <div class="col-md-4">
-          {% gizmo table_view inlets_tbv %}
-        </div>
-        <div class="col-md-4">
-          {% gizmo table_view exits_tbv %}
-        </div>
+          <p style="color: #333; font-size: 14px; padding-left: 1em;"><strong>Enter Minor losses</strong></p>
+          <div class="col-md-4">
+            {% gizmo table_view bends_tbv %}
+          </div>
+          <div class="col-md-4">
+            {% gizmo table_view inlets_tbv %}
+          </div>
+          <div class="col-md-4" style="padding-left: 0; padding-right: 0;">
+            <div clasd="row">
+              <div class="col-md-12">
+                {% gizmo table_view exits_tbv %}
+              </div>
+            </div>
+            <div clasd="row">
+              <div class="col-md-12">
+                {% gizmo table_view gradContraction_tbv %}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

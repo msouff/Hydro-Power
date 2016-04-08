@@ -8,7 +8,7 @@ class HydroPower(TethysAppBase):
 
     name = 'Hydro Power'
     index = 'hydropower:home'
-    icon = 'hydropower/images/icon.gif'
+    icon = 'hydropower/images/DR.jpg'
     package = 'hydropower'
     root_url = 'hydropower'
     color = '#277554'
